@@ -24,7 +24,7 @@ set fillchars+=vert:\
 
 " set leader key
 nnoremap <SPACE> <Nop>
-let mapleader=","
+let mapleader=" " 
 
 "source nvim config
 nnoremap <silent><leader>1 :source ~/.config/nvim/init.vim \| :PlugInstall<CR>
