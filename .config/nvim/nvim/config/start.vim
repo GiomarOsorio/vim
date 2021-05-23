@@ -54,23 +54,33 @@ else
     call plug#begin("~/.vim/plugged")
 endif
 
-source $HOME/.config/nvim/config/pluggins.vim
+"source $HOME/.config/nvim/config/pluggins.vim
 " Now the actual plugins:
 " Retro groove color scheme for Vim
 Plug 'morhetz/gruvbox'
-" Intellisense engine for Vim8 & Neovim, full languague server protocol
-" support as VSCode
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " A tree explorer plugin for vim
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
+" A plugin of NERDTree showing git status flag
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " Adds file type icons to Vim plugins
 Plug 'ryanoasis/vim-devicons'
+"A Git wrapper so awesome, it should be illegal
+Plug 'tpope/vim-fugitive'
+" Git/mercurial/others diff icons on the side of the file lines
+Plug 'mhinz/vim-signify'
 " Lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline'
 " A collection of themes for vim-airline
 Plug 'vim-airline/vim-airline-themes'
 " Plugin that displays tags in a window, ordered by scope
 Plug 'majutsushi/tagbar'
+" Code and files fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Using the jedi autocompletion library for VIM.
+Plug 'davidhalter/jedi-vim'
+" Intellisense engine for Vim8 & Neovim, full languague server protocol support as VSCode
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
