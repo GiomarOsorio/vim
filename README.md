@@ -1,5 +1,9 @@
 # My Neovim config files
 
+<p align="center">
+<img width="800" alt="image" src="/neovim.png">
+</p>
+
 ## Index
 
 - [Introduction](#introduction)
