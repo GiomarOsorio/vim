@@ -35,7 +35,7 @@ Before installing make sure your system has the following dependencies.
 ### Python dependencies
 
 ```bash
-pip install pynvim
+pip install pynvim jedi
 ```
 
 ### NodeJS dependencies
