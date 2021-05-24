@@ -37,14 +37,14 @@ map <leader><tab> :tabp<CR>
 "imap <leader>p <ESC>:tabp<CR>
 
 " window navigation mappings
-nmap <leader>l <C-W><C-L>   
-imap <leader>l <ESC><C-W><C-L>   
-nmap <leader>h <C-W><C-H>   
-imap <leader>h <ESC><C-W><C-H>   
-nmap <leader>k <C-W><C-K>   
-imap <leader>k <ESC><C-W><C-K>
-nmap <leader>j <C-W><C-J>   
-imap <leader>j <ESC><C-W><C-J>   
+nmap <leader>l <C-W><C-L><ESC>
+imap <leader>l <ESC><C-W><C-L><ESC>   
+nmap <leader>h <C-W><C-H><ESC>
+imap <leader>h <ESC><C-W><C-H><ESC>   
+nmap <leader>k <C-W><C-K><ESC>
+imap <leader>k <ESC><C-W><C-K><ESC>
+nmap <leader>j <C-W><C-J><ESC>
+imap <leader>j <ESC><C-W><C-J><ESC>   
 
 " when scrolling, keep cursor 3 lines away from screen border
 set scrolloff=3

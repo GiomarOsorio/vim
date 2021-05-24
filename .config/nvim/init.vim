@@ -16,6 +16,8 @@ source $HOME/.config/nvim/config/plug/tagbar.vim
 source $HOME/.config/nvim/config/plug/coc.vim
 " Fzf ------------------------------------------------------------------------
 source $HOME/.config/nvim/config/plug/fzf.vim
+" Typescript
+source $HOME/.config/nvim/config/plug/typescript.vim
 
 " General --------------------------------------------------------------------
 source $HOME/.config/nvim/config/general.vim
