@@ -85,6 +85,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'leafgarland/typescript-vim'
 " Preview colours in source code while editing
 Plug 'ap/vim-css-color'
+" JSX and TSX syntax pretty highlighting for vim
+Plug 'maxmellon/vim-jsx-pretty'
+" 💯The most accurate syntax highlighting plugin for JavaScript and Flow.js
+Plug 'yuezk/vim-js'
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
 
