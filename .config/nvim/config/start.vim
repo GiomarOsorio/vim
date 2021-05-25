@@ -81,8 +81,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'davidhalter/jedi-vim'
 " Intellisense engine for Vim8 & Neovim, full languague server protocol support as VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Typescript syntax files for Vim
+" Typescript syntax files for Vim
 Plug 'leafgarland/typescript-vim'
+" Preview colours in source code while editing
+Plug 'ap/vim-css-color'
 " Tell vim-plug we finished declaring plugins, so it can load them
 call plug#end()
 
