@@ -1,4 +1,4 @@
-let :coc_global_extensions = [
+let g:coc_global_extensions = [
   \ 'coc-jedi',
   \ 'coc-css',
   \ 'coc-html',
