@@ -91,7 +91,7 @@
   "scss.lint.ieHack": "ignore",
   "scss.lint.unknownVendorSpecificProperties": "ignore",
   "scss.lint.propertyIgnoredDueToDisplay": "warning",
-  "scss.lint.importan": "ignore",
+  "scss.lint.important": "ignore",
   "scss.lint.float": "ignore",
   "scss.lint.idSelector": "ignore",
   "wxss.validate": true,
@@ -165,5 +165,13 @@
     "css",
     "markdown"
   ],
-  "coc.preferences.formatOnType": true
+  "coc.preferences.formatOnType": true,
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  }
 }

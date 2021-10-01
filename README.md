@@ -35,13 +35,13 @@ Before installing make sure your system has the following dependencies.
 ### Python dependencies
 
 ```bash
-pip install pynvim jedi
+pip install pynvim jedi jedi-language-server
 ```
 
 ### NodeJS dependencies
 
 ```bash
-npm -g install neovim
+npm -g install neovim bashlanguage-server-
 ```
 
 ## Plugins
