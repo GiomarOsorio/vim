@@ -77,8 +77,6 @@ Plug 'majutsushi/tagbar'
 " Code and files fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Using the jedi autocompletion library for VIM.
-Plug 'davidhalter/jedi-vim'
 " Intellisense engine for Vim8 & Neovim, full languague server protocol support as VSCode
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Typescript syntax files for Vim
