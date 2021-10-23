@@ -28,6 +28,7 @@ Before installing make sure your system has the following dependencies.
 - nodejs
 - npm
 - python
+- go
 - pip
 - ctags
 - neovim

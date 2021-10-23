@@ -150,7 +150,6 @@
   "eslint.alwaysShowStatus": true,
   "eslint.run": "onType",
   "eslint.autoFixOnSave": true,
-  "sh.enable": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "javascript",
@@ -172,6 +171,12 @@
       "args": ["start"],
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
+    },
+    "terraform": {
+      "command": "~/.bin/terraform-lsp",
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
     }
   }
 }
