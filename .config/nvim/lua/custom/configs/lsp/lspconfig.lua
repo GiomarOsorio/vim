@@ -42,3 +42,5 @@ for _, lsp in ipairs(servers) do
 
   lspconfig[lsp].setup(final_option)
 end
+
+vim.diagnostic.config({virtual_text = false})
