@@ -5,7 +5,7 @@ local options = {
 }
 
 local lspconfig = require "lspconfig"
-local servers = { "bashls", "docker_compose_language_service", "dockerls", "eslint", "gopls", "jedi_language_server", "marksman", "terraformls", "tsserver", "yamlls"}
+local servers = { "bashls", "docker_compose_language_service", "dockerls", "eslint", "gopls", "jedi_language_server", "marksman", "terraformls", "tflint", "tsserver", "yamlls"}
 for _, lsp in ipairs(servers) do
   local option={}
   if lsp == "bashls" then
@@ -42,5 +42,3 @@ for _, lsp in ipairs(servers) do
 
   lspconfig[lsp].setup(final_option)
 end
-
-vim.diagnostic.config({virtual_text = false})
