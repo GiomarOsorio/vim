@@ -15,20 +15,23 @@ M.disabled = {
 -- Your custom mappings
 M.dap = {
   plugin = true,
+
   n = {
     ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "Add breakpoint at line" },
     ["<leader>dr"] = { "<cmd> DapContinue <CR>", "Run or continue the debugger" },
+
   },
 }
 
 M.general = {
   n = {
-    ["tt"] = { "<cmd> enew <CR>", "New buffer" },
+    ["tt"] = { "<cmd> enew <CR>", "New buffer" }
   },
 }
 
 M.lsp = {
   plugin = true,
+
   n = {
     --- windows
     ["<leader>gl"] = { "<cmd> lua vim.diagnostic.open_float() <CR>", "Show diagnostics in a floating window"},
@@ -37,9 +40,9 @@ M.lsp = {
     ["<leader>q"] = { "<cmd> lua vim.diagnostic.setloclist() <CR>", "Add buffer diagnostics to the location list"},
   }
 }
-
 M.nvimtree = {
   plugin = true,
+
   n = {
     -- toggle
     ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
