@@ -3,7 +3,7 @@ local util = lspconfig.util
 
 return {
   cmd = { "yaml-language-server", "--stdio" },
-  filetypes = { "yaml", "yaml.docker-compose" },
+  filetypes = { "yaml" },
   root_dir = util.find_git_ancestor,
   settings = {
     redhat = {

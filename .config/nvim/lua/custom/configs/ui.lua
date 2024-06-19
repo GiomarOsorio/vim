@@ -1,5 +1,6 @@
 local ui = {
   transparency = true,
+  theme = 'gruvbox',
   statusline = {
     theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
 
@@ -8,7 +9,6 @@ local ui = {
     separator_style = "arrow",
     overriden_modules = nil,
   },
-  theme = 'gruvbox',
 }
 
 return ui

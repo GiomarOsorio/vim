@@ -8,7 +8,7 @@ M.disabled = {
       ["<leader>b"] = "",
       ["<leader>e"] =  "",
       ["<leader>gl"] = "",
-      ["<leader>q"] = ""
+      ["<leader>q"] = "",
    }
 }
 
@@ -25,7 +25,28 @@ M.dap = {
 
 M.general = {
   n = {
-    ["tt"] = { "<cmd> enew <CR>", "New buffer" }
+    ["ff"] = { "<cmd> enew <CR>", "New buffer" },
+    ["<leader>h"] = { "<C-w>h", "Window left" },
+    ["<leader>k"] = { "<C-w>k", "Window up" },
+    ["<leader>j"] = { "<C-w>j", "Window down" },
+    ["<leader>l"] = { "<C-w>l", "Window right" },
+    ["h"] = { "<Left>", "Move left" },
+    ["n"] = { "<Up>", "Move up" },
+    ["t"] = { "<Down>", "Move down" },
+    ["s"] = { "<Right>", "Move right" },
+  },
+  i = {
+    -- navigate within insert mode
+    ["<C-h>"] = { "<Left>", "Move left" },
+    ["<C-k>"] = { "<Up>", "Move up" },
+    ["<C-j>"] = { "<Down>", "Move down" },
+    ["<C-l>"] = { "<Right>", "Move right" },
+  },
+  v = {
+    ["h"] = { "<Left>", "Move left" },
+    ["k"] = { "<Up>", "Move up" },
+    ["j"] = { "<Down>", "Move down" },
+    ["l"] = { "<Right>", "Move right" },
   },
 }
 
@@ -40,6 +61,28 @@ M.lsp = {
     ["<leader>q"] = { "<cmd> lua vim.diagnostic.setloclist() <CR>", "Add buffer diagnostics to the location list"},
   }
 }
+
+M.nvterm = {
+  plugin = true,
+
+  n = {
+    ["<C-u>"] = {
+      function()
+        require("nvterm.terminal").new "horizontal"
+      end,
+      "New horizontal term",
+    },
+
+    ["<C-e>"] = {
+      function()
+        require("nvterm.terminal").new "vertical"
+      end,
+      "New vertical term",
+    },
+  }
+
+}
+
 M.nvimtree = {
   plugin = true,
 
