@@ -46,11 +46,57 @@ local plugins = {
         "prettier",
         "shellcheck",
         "terraform-ls",
+        "tflint",
         "typescript-language-server",
         "yaml-language-server",
       },
     -- end Customs LSP
     },
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "bash",
+        "cmake",
+        "comment",
+        "css",
+        "csv",
+        "dockerfile",
+        "git_config",
+        "git_rebase",
+        "gitattributes",
+        "gitcommit",
+        "gitignore",
+        "go",
+        "gpg",
+        "javascript",
+        "jq",
+        "jsdoc",
+        "json",
+        "json5",
+        "jsonc",
+        "jsonnet",
+        "python",
+        "regex",
+        "requirements",
+        "terraform",
+        "tsx",
+        "typescript",
+        "xml",
+        "yaml",
+      },
+    },
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
 }
+
 return plugins
