@@ -31,24 +31,15 @@ know more.
 
 1 - Install NvChad and run it:
 ```Bash
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 ```
 2 - Exit from neovim and copy the configuration:
 ```Bash
-git clone --branch main git@github.com:GiomarOsorio/vim.git && cp -r ./.config/nvim/* $HOME/.config/nvim/ && rm -r ./vim
+git clone --branch main git@github.com:GiomarOsorio/vim.git && cp -r ./.config/nvim/* $HOME/.config/nvim/ && sudo rm -r ./vim
 ```
 3 - Run nvim
 ```Bash
 nvim
-```
-
-NOT TESTED
-
-Single command to install NvChad and my configuration:
-
-```Bash
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && 
-git clone --branch main git@github.com:GiomarOsorio/vim.git && cp -r ./.config/nvim/* $HOME/.config/nvim/ && rm -r ./vim && nvim
 ```
 
 ## Installed

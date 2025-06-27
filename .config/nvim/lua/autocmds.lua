@@ -1,6 +1,10 @@
--------------------------------------- autocmds ------------------------------------------
-local autocmd = vim.api.nvim_create_autocmd
+require "nvchad.autocmds"
 
+local lspconfig = require "lspconfig"
+
+local autocmd = vim.api.nvim_create_autocmd
+local fn = vim.fn
+local util = lspconfig.util
 local std_in = false
 
 function STDChange ()
@@ -60,3 +64,21 @@ autocmd("BufEnter", {
     vim.schedule(NERDTreeRefresh)
   end,
 })
+
+-- JavaScript/Typescript LSP
+vim.cmd [[autocmd BufWritePre *.jsx,*.js,*tsx,*ts EslintFixAll]]
+
+-- Terraform LSP
+autocmd({"BufWritePre"}, {
+  pattern = {"*.tf", "*.tfvars"},
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
+vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
+vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
+vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
+
