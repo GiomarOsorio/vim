@@ -21,6 +21,7 @@ o.sidescrolloff = 8 -- Keep context when scrolling horizontally
 o.cmdheight = 4 -- More space for command line messages
 o.splitbelow = true -- split horizontally and below
 o.splitright = true -- split vertically and right
+o.laststatus = 3 -- set status line to the bottom
 
 -- ================================
 -- Files
