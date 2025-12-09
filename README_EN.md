@@ -1,12 +1,12 @@
-<a href="README_EN.md">
-  <img src="https://img.shields.io/badge/lang-English-blue.svg" alt="English">
+<a href="README.md">
+  <img src="https://img.shields.io/badge/lang-Español-green.svg" alt="Español">
 </a>
 
 # TurtleSRE Neovim Configuration
 
-Configuración profesional de Neovim optimizada para **SRE/DevOps**, con soporte completo para Kubernetes, Terraform, Docker, y desarrollo en múltiples lenguajes.
+Professional Neovim configuration optimized for **SRE/DevOps**, with full support for Kubernetes, Terraform, Docker, and multi-language development.
 
-## Capturas de pantalla
+## Screenshots
 
 <p align="center">
   <img src="image/turtle dashboard.png" alt="TurtleSRE Dashboard" width="100%">
@@ -16,30 +16,30 @@ Configuración profesional de Neovim optimizada para **SRE/DevOps**, con soporte
   <img src="image/turtle dashboard 2.png" alt="TurtleSRE Dashboard 2" width="100%">
 </p>
 
-## Requisitos del Sistema
+## System Requirements
 
 - **Neovim** >= 0.9.0
-- **Git** (requerido para lazy.nvim)
-- **Make** y **GCC/Clang** (para compilar telescope-fzf-native)
+- **Git** (required for lazy.nvim)
+- **Make** and **GCC/Clang** (to compile telescope-fzf-native)
 
-## Instalación
+## Installation
 
-### 1. Clonar el repositorio
+### 1. Clone the repository
 
 ```bash
-# Backup de configuración existente (si existe)
+# Backup existing configuration (if any)
 mv ~/.config/nvim ~/.config/nvim.bak
 
-# Clonar esta configuración
-git clone https://github.com/tu-usuario/nvim.git ~/.config/nvim
+# Clone this configuration
+git clone https://github.com/your-username/nvim.git ~/.config/nvim
 ```
 
-### 2. Instalar dependencias del sistema
+### 2. Install system dependencies
 
 #### Linux (Debian/Ubuntu)
 
 ```bash
-# Dependencias básicas
+# Basic dependencies
 sudo apt update
 sudo apt install -y \
     git \
@@ -56,32 +56,32 @@ sudo apt install -y \
 sudo apt install -y python3 python3-pip python3-venv
 pip install pynvim flake8
 
-# Node.js (via nvm - recomendado)
+# Node.js (via nvm - recommended)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 source ~/.bashrc
 nvm install --lts
 nvm use --lts
 
-# pnpm (alternativa a npm)
+# pnpm (alternative to npm)
 npm install -g pnpm
-# o
+# or
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 
-# Herramientas npm globales
+# Global npm tools
 pnpm install -g neovim eslint_d
 
 # Go
 sudo apt install -y golang-go
-# o instalar desde https://go.dev/dl/ para versión más reciente
+# or install from https://go.dev/dl/ for the latest version
 
-# Herramientas adicionales
+# Additional tools
 sudo apt install -y shellcheck
 
-# fzf (opcional pero recomendado)
+# fzf (optional but recommended)
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-# lazygit (opcional pero muy recomendado)
+# lazygit (optional but highly recommended)
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
@@ -92,7 +92,7 @@ rm lazygit lazygit.tar.gz
 #### Linux (Fedora/RHEL)
 
 ```bash
-# Dependencias básicas
+# Basic dependencies
 sudo dnf install -y \
     git \
     make \
@@ -149,10 +149,10 @@ pip install flake8
 #### macOS
 
 ```bash
-# Instalar Homebrew si no está instalado
+# Install Homebrew if not installed
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Dependencias
+# Dependencies
 brew install \
     neovim \
     git \
@@ -166,34 +166,34 @@ brew install \
     go \
     shellcheck
 
-# Herramientas Python
+# Python tools
 pip3 install pynvim flake8
 
-# Herramientas npm
+# npm tools
 pnpm install -g neovim eslint_d
 
-# Configurar fzf
+# Configure fzf
 $(brew --prefix)/opt/fzf/install
 ```
 
-### 3. Iniciar Neovim
+### 3. Start Neovim
 
 ```bash
 nvim
 ```
 
-En el primer inicio:
-1. **lazy.nvim** descargará e instalará todos los plugins automáticamente
-2. **Mason** instalará los LSP servers, formatters y linters configurados
+On first launch:
+1. **lazy.nvim** will download and install all plugins automatically
+2. **Mason** will install the configured LSP servers, formatters, and linters
 
-### 4. Verificar instalación de herramientas
+### 4. Verify tool installation
 
-Dentro de Neovim:
+Inside Neovim:
 ```vim
 :Mason
 ```
 
-Asegúrate de que estén instaladas las siguientes herramientas:
+Make sure the following tools are installed:
 
 #### LSP Servers
 - `ansiblels` - Ansible
@@ -209,7 +209,7 @@ Asegúrate de que estén instaladas las siguientes herramientas:
 - `terraformls` - Terraform
 - `tflint` - Terraform linting
 - `ts_ls` - TypeScript/JavaScript
-- `yamlls` - YAML (con schemas K8s)
+- `yamlls` - YAML (with K8s schemas)
 
 #### Formatters
 - `black` - Python
@@ -228,22 +228,22 @@ Asegúrate de que estén instaladas las siguientes herramientas:
 - `shellcheck` - Shell/Bash
 - `yamllint` - YAML
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 ~/.config/nvim/
-├── init.lua                    # Punto de entrada
-├── lazy-lock.json              # Lock de versiones de plugins
+├── init.lua                    # Entry point
+├── lazy-lock.json              # Plugin version lock
 ├── lua/
-│   ├── config.lua              # Flags de configuración
+│   ├── config.lua              # Configuration flags
 │   ├── core/
 │   │   ├── init.lua
-│   │   ├── keymaps.lua         # Keybindings globales
-│   │   ├── lazy.lua            # Setup de lazy.nvim
-│   │   └── options.lua         # Opciones de Neovim
+│   │   ├── keymaps.lua         # Global keybindings
+│   │   ├── lazy.lua            # lazy.nvim setup
+│   │   └── options.lua         # Neovim options
 │   ├── lsp/
-│   │   ├── init.lua            # Cargador automático de LSP
-│   │   └── servers/            # Configuraciones por servidor
+│   │   ├── init.lua            # Automatic LSP loader
+│   │   └── servers/            # Per-server configurations
 │   │       ├── ansiblels.lua   # Ansible
 │   │       ├── bashls.lua      # Bash/Shell
 │   │       ├── dockerls.lua    # Dockerfile
@@ -257,18 +257,18 @@ Asegúrate de que estén instaladas las siguientes herramientas:
 │   │       ├── terraformls.lua # Terraform
 │   │       ├── ts_ls.lua       # TypeScript/JavaScript
 │   │       └── yamlls.lua      # YAML (K8s, Docker Compose, etc.)
-│   ├── plugins/                # Configuración de plugins
-│   │   ├── cmp.lua             # Autocompletado
-│   │   ├── conform.lua         # Formateo
+│   ├── plugins/                # Plugin configuration
+│   │   ├── cmp.lua             # Autocompletion
+│   │   ├── conform.lua         # Formatting
 │   │   ├── git.lua             # Git integration
 │   │   ├── lint.lua            # Linting
-│   │   ├── lsp.lua             # Configuración central LSP
-│   │   ├── mason.lua           # Gestor de herramientas
+│   │   ├── lsp.lua             # Central LSP configuration
+│   │   ├── mason.lua           # Tool manager
 │   │   ├── schemastore.lua     # JSON/YAML schemas
 │   │   ├── telescope.lua       # Fuzzy finder
 │   │   ├── treesitter.lua      # Syntax highlighting
-│   │   ├── trouble.lua         # Diagnósticos
-│   │   └── ui.lua              # Tema y UI
+│   │   ├── trouble.lua         # Diagnostics
+│   │   └── ui.lua              # Theme and UI
 │   └── utils.lua
 └── README.md
 ```
@@ -279,79 +279,79 @@ Asegúrate de que estén instaladas las siguientes herramientas:
 
 ### General
 
-| Keybinding | Descripción |
+| Keybinding | Description |
 |------------|-------------|
-| `<leader>w` | Guardar archivo |
-| `<leader>q` | Cerrar buffer |
+| `<leader>w` | Save file |
+| `<leader>q` | Close buffer |
 | `<leader>e` | Toggle NvimTree |
-| `<leader>h` | Limpiar highlight de búsqueda |
+| `<leader>h` | Clear search highlight |
 
-### Búsqueda (Telescope)
+### Search (Telescope)
 
-| Keybinding | Descripción |
+| Keybinding | Description |
 |------------|-------------|
-| `<leader>ff` | Buscar archivos |
-| `<leader>fg` | Live grep (buscar texto) |
-| `<leader>fb` | Buscar buffers |
-| `<leader>fh` | Buscar en historial |
-| `<leader>fr` | Archivos recientes |
+| `<leader>ff` | Find files |
+| `<leader>fg` | Live grep (search text) |
+| `<leader>fb` | Find buffers |
+| `<leader>fh` | Search history |
+| `<leader>fr` | Recent files |
 
 ### Git
 
-| Keybinding | Descripción |
+| Keybinding | Description |
 |------------|-------------|
-| `<leader>gg` | Abrir LazyGit |
+| `<leader>gg` | Open LazyGit |
 | `<leader>gs` | Git status |
 | `<leader>gc` | Git commits |
 | `<leader>gb` | Git branches |
 | `<leader>gd` | Git diff |
-| `<leader>hb` | Git blame línea |
+| `<leader>hb` | Git blame line |
 | `<leader>hp` | Preview hunk |
 | `<leader>hs` | Stage hunk |
 | `<leader>hr` | Reset hunk |
 
 ### LSP
 
-| Keybinding | Descripción |
+| Keybinding | Description |
 |------------|-------------|
-| `gd` | Ir a definición |
-| `gD` | Ir a declaración |
-| `gr` | Referencias |
-| `gi` | Ir a implementación |
+| `gd` | Go to definition |
+| `gD` | Go to declaration |
+| `gr` | References |
+| `gi` | Go to implementation |
 | `K` | Hover documentation |
 | `<leader>ca` | Code actions |
-| `<leader>rn` | Renombrar símbolo |
-| `<leader>cf` | Formatear archivo |
+| `<leader>rn` | Rename symbol |
+| `<leader>cf` | Format file |
 
-### Diagnósticos (Trouble)
+### Diagnostics (Trouble)
 
-| Keybinding | Descripción |
+| Keybinding | Description |
 |------------|-------------|
 | `<leader>xx` | Toggle Trouble |
-| `<leader>xw` | Diagnósticos workspace |
-| `<leader>xd` | Diagnósticos documento |
-| `[d` | Diagnóstico anterior |
-| `]d` | Diagnóstico siguiente |
+| `<leader>xw` | Workspace diagnostics |
+| `<leader>xd` | Document diagnostics |
+| `[d` | Previous diagnostic |
+| `]d` | Next diagnostic |
 
 ### Terraform
 
-| Keybinding | Descripción |
+| Keybinding | Description |
 |------------|-------------|
 | `<leader>ti` | Terraform init |
 | `<leader>tp` | Terraform plan |
 | `<leader>ta` | Terraform apply |
 
-### Ventanas/Splits
+### Windows/Splits
 
-| Keybinding | Descripción |
+| Keybinding | Description |
 |------------|-------------|
-| `<leader>sv` | Split vertical |
-| `<leader>sh` | Split horizontal |
-| `<C-h/j/k/l>` | Navegar entre splits |
+| `<leader>sv` | Vertical split |
+| `<leader>sh` | Horizontal split |
+| `<C-h/j/k/l>` | Navigate between splits |
 
-## Lenguajes Soportados
+## Supported Languages
 
-| Lenguaje | LSP | Formatter | Linter |
+| Language | LSP | Formatter | Linter |
 |----------|-----|-----------|--------|
 | Python | pyright | black, isort | ruff |
 | Go | gopls | gofumpt, goimports | golangci-lint |
@@ -366,100 +366,100 @@ Asegúrate de que estén instaladas las siguientes herramientas:
 | Markdown | marksman | prettier | - |
 | Ansible | ansiblels | - | - |
 
-## Características Especiales
+## Special Features
 
 ### Kubernetes
-- Schema validation automático para manifiestos K8s
-- Autocompletado para recursos de Kubernetes
-- Soporte para Helm charts
+- Automatic schema validation for K8s manifests
+- Autocompletion for Kubernetes resources
+- Helm charts support
 
 ### Terraform
-- LSP con autocompletado
-- Linting con tflint
-- Formato automático al guardar
-- Comandos integrados (init, plan, apply)
+- LSP with autocompletion
+- Linting with tflint
+- Auto-format on save
+- Integrated commands (init, plan, apply)
 
 ### Git Integration
-- **gitsigns**: Indicadores en el gutter, blame inline
-- **fugitive**: Comandos Git nativos
-- **diffview**: Vista avanzada de diffs
-- **lazygit**: TUI completa para Git
+- **gitsigns**: Gutter indicators, inline blame
+- **fugitive**: Native Git commands
+- **diffview**: Advanced diff view
+- **lazygit**: Complete Git TUI
 
-## Solución de Problemas
+## Troubleshooting
 
-### Verificar salud de Neovim
+### Check Neovim health
 ```vim
 :checkhealth
 ```
 
-### Reinstalar herramientas de Mason
+### Reinstall Mason tools
 ```vim
 :MasonUpdate
 ```
 
-### Actualizar plugins
+### Update plugins
 ```vim
 :Lazy sync
 ```
 
-### Problemas comunes
+### Common issues
 
 **Error: "No clipboard tool found"**
 ```bash
 # Linux
 sudo apt install xclip xsel
 
-# macOS (ya incluido)
+# macOS (already included)
 ```
 
 **Error: "Node not found"**
 ```bash
-# Verificar instalación
+# Verify installation
 node --version
 npm --version
 ```
 
-**LSP no funciona**
-1. Verificar que el servidor está instalado: `:Mason`
-2. Verificar logs: `:LspLog`
-3. Reiniciar LSP: `:LspRestart`
+**LSP not working**
+1. Verify the server is installed: `:Mason`
+2. Check logs: `:LspLog`
+3. Restart LSP: `:LspRestart`
 
-## Personalización
+## Customization
 
-### Activar GitHub Copilot
-En `lua/config.lua`:
+### Enable GitHub Copilot
+In `lua/config.lua`:
 ```lua
 M.features = {
-    copilot = true,  -- Cambiar a true
+    copilot = true,  -- Change to true
 }
 ```
 
-### Cambiar tema
-En `lua/plugins/ui.lua`, modificar la configuración de gruvbox o instalar otro tema.
+### Change theme
+In `lua/plugins/ui.lua`, modify the gruvbox configuration or install another theme.
 
-### Añadir nuevo LSP
-1. Añadirlo a la lista en `lua/plugins/mason.lua`
-2. Crear configuración en `lua/lsp/servers/nombre.lua` (opcional)
+### Add new LSP
+1. Add it to the list in `lua/plugins/mason.lua`
+2. Create configuration in `lua/lsp/servers/name.lua` (optional)
 
-## Actualizaciones
+## Updates
 
 ```bash
 cd ~/.config/nvim
 git pull
 
-# Dentro de Neovim
+# Inside Neovim
 :Lazy sync
 :MasonUpdate
 ```
 
-## Resumen de Dependencias
+## Dependencies Summary
 
-### Script de instalación rápida (Linux Debian/Ubuntu)
+### Quick install script (Linux Debian/Ubuntu)
 
 ```bash
 #!/bin/bash
 
-# Dependencias del sistema
+# System dependencies
 sudo apt update && sudo apt install -y \
     git make gcc ripgrep fd-find xclip xsel \
     python3 python3-pip python3-venv \
@@ -474,7 +474,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install --lts
 
-# pnpm y herramientas npm
+# pnpm and npm tools
 npm install -g pnpm
 pnpm install -g neovim eslint_d
 
@@ -487,10 +487,10 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit && sudo install lazygit /usr/local/bin && rm lazygit lazygit.tar.gz
 
-echo "Instalación completada. Ejecuta 'nvim' para iniciar."
+echo "Installation complete. Run 'nvim' to start."
 ```
 
-### Script de instalación rápida (macOS)
+### Quick install script (macOS)
 
 ```bash
 #!/bin/bash
@@ -498,7 +498,7 @@ echo "Instalación completada. Ejecuta 'nvim' para iniciar."
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Dependencias
+# Dependencies
 brew install neovim git ripgrep fd fzf lazygit node pnpm python@3 go shellcheck
 
 # Python
@@ -510,14 +510,14 @@ pnpm install -g neovim eslint_d
 # fzf config
 $(brew --prefix)/opt/fzf/install --all
 
-echo "Instalación completada. Ejecuta 'nvim' para iniciar."
+echo "Installation complete. Run 'nvim' to start."
 ```
 
-## Licencia
+## License
 
 MIT
 
 ---
 
-**Autor**: Giomar Osorio
-**Última actualización**: 2025
+**Author**: Giomar Osorio
+**Last updated**: 2025

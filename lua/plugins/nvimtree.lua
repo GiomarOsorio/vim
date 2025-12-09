@@ -1,0 +1,64 @@
+return {
+  "nvim-tree/nvim-tree.lua",
+  -- Lazy load: only load with command or keymap
+  cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeOpen" },
+  keys = {
+    { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Toggle NvimTree" },
+  },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    require("nvim-tree").setup({
+      view = {
+        width = 30,
+      },
+      renderer = {
+        group_empty = true,
+      },
+      filters = {
+        dotfiles = false,  -- Show hidden files (important for SRE)
+      },
+      -- Close NvimTree if it's the last window
+      actions = {
+        open_file = {
+          quit_on_open = false,  -- Don't close when opening file
+          resize_window = true,  -- Resize window when opening file
+          window_picker = {
+            enable = true,
+            picker = "default",
+            chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+            exclude = {
+              filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+              buftype = { "nofile", "terminal", "help" },
+            },
+          },
+        },
+      },
+    })
+
+    -- Auto-close NvimTree if it's the last window
+    vim.api.nvim_create_autocmd("QuitPre", {
+      callback = function()
+        local tree_wins = {}
+        local floating_wins = {}
+        local wins = vim.api.nvim_list_wins()
+
+        for _, w in ipairs(wins) do
+          local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
+          if bufname:match("NvimTree_") ~= nil then
+            table.insert(tree_wins, w)
+          end
+          if vim.api.nvim_win_get_config(w).relative ~= "" then
+            table.insert(floating_wins, w)
+          end
+        end
+
+        -- If only NvimTree and floating windows remain, close NvimTree
+        if #wins - #floating_wins - #tree_wins == 1 then
+          for _, w in ipairs(tree_wins) do
+            vim.api.nvim_win_close(w, true)
+          end
+        end
+      end,
+    })
+  end,
+}
