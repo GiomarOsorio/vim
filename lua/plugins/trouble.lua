@@ -1,7 +1,36 @@
--- ==============================================
--- Trouble.nvim - Enhanced diagnostics
--- Unified view of errors, warnings, TODOs, etc.
--- ==============================================
+-- ============================================
+-- Plugin: Trouble (Diagnostics Panel)
+-- ============================================
+-- Beautiful and unified panel for viewing diagnostics, TODOs, LSP references,
+-- quickfix lists, and location lists.
+--
+-- Features:
+--   - Workspace and buffer diagnostics in one view
+--   - LSP definitions and references browser
+--   - Document symbols outline
+--   - Quickfix and location list integration
+--   - TODO comments integration
+--   - Auto-preview on hover
+--   - Auto-close when empty
+--
+-- Keymaps:
+--   <leader>xx  - Toggle workspace diagnostics
+--   <leader>xX  - Toggle buffer diagnostics only
+--   <leader>xs  - Show document symbols
+--   <leader>xl  - Show LSP definitions/references
+--   <leader>xL  - Show location list
+--   <leader>xq  - Show quickfix list
+--   <leader>xt  - Show TODOs (from todo-comments)
+--
+-- Inside Trouble:
+--   <CR>   - Jump to item
+--   o      - Jump and keep focus in Trouble
+--   q      - Close Trouble
+--   <Tab>  - Next item
+--   <S-Tab> - Previous item
+--
+-- Plugin: trouble.nvim
+-- Repo: folke/trouble.nvim
 
 return {
   "folke/trouble.nvim",

@@ -1,6 +1,20 @@
--- lsp/init.lua
--- Automatic loading of LSP server configurations
--- Each server can have its own file in lua/lsp/servers/
+-- ============================================
+-- LSP Configuration Loader
+-- ============================================
+-- Automatically discovers and loads all LSP servers installed via Mason.
+-- Server-specific configurations are loaded from lua/lsp/servers/<server_name>.lua
+-- If no custom config exists, a default configuration is applied.
+--
+-- Architecture:
+--   1. Gets list of installed servers from Mason
+--   2. For each server, checks if lua/lsp/servers/<server>.lua exists
+--   3. Loads custom config if found, otherwise uses default_config
+--   4. All servers inherit capabilities (autocompletion) and on_attach (keybindings)
+--
+-- Adding a new LSP server:
+--   1. Install via Mason: :MasonInstall <server-name>
+--   2. (Optional) Create lua/lsp/servers/<server-name>.lua for custom settings
+--   3. Restart Neovim - server will be automatically configured
 
 local lspconfig = require("lspconfig")
 

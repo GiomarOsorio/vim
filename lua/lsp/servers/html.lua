@@ -1,5 +1,19 @@
--- lsp/servers/html.lua
--- LSP server configuration for HTML
+-- ============================================
+-- LSP: html (HTML Language Server)
+-- ============================================
+-- VSCode's HTML language server with formatting and validation.
+-- Supports HTML5, embedded CSS/JavaScript, and template languages.
+--
+-- Features:
+--   - HTML5 tag completion and validation
+--   - Embedded CSS and JavaScript support
+--   - Hover documentation for HTML elements
+--   - Formatting with configurable options
+--   - Support for Django templates and Templ
+--   - Emmet abbreviation support
+--
+-- Server: vscode-html-language-server (Microsoft)
+-- Install: :MasonInstall html-lsp
 
 local lspconfig = require("lspconfig")
 local default = _G.LSP_DEFAULT_CONFIG or {}

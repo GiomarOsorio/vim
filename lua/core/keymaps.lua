@@ -1,12 +1,32 @@
 -- ============================================
 -- General Neovim Keymaps
--- Supports QWERTY (h,j,k,l) and Dvorak Programming (h,t,n,s)
 -- ============================================
+-- This file defines global keymaps that work across the entire editor.
+-- Supports both QWERTY (h,j,k,l) and Dvorak Programming (h,t,n,s) layouts.
+--
+-- Layout Philosophy:
+--   - QWERTY users: Standard Vim navigation (hjkl)
+--   - Dvorak users: Ergonomic navigation (htns) on home row
+--   - Both layouts work simultaneously
+--
+-- Sections:
+--   1. Buffers - Create, close, navigate buffers
+--   2. Navigation - Basic movement and search
+--   3. Windows - Split management
+--   4. Movement QWERTY - Standard hjkl navigation
+--   5. Movement Dvorak - Alternative htns navigation
+--   6. Dvorak Remaps - Restore t/n/s original functions
+--   7. Insert Mode - Ctrl+movement in insert mode
+--   8. Terminal - Terminal split commands
+--   9. Copilot - AI completion accept
+--  10. Format - Code formatting
+--  11. Git - Fugitive commands
+--
+-- Note: Plugin-specific keymaps are defined in their respective files.
 
--- Helper for cleaner keymap definitions
 local map = vim.keymap.set
 
--- Leader key
+-- Leader key: Space (both leader and localleader)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 

@@ -1,5 +1,34 @@
--- plugins/lsp.lua
--- Central LSP configuration with shared capabilities and on_attach
+-- ============================================
+-- Plugin: LSP Configuration
+-- ============================================
+-- Central LSP configuration that provides shared capabilities and keybindings
+-- for all language servers. This module is imported by lua/lsp/init.lua.
+--
+-- Features:
+--   - Unified LSP keybindings for all servers
+--   - Shared completion capabilities from nvim-cmp
+--   - Diagnostic configuration and icons
+--   - Rounded borders for floating windows
+--   - Navigate to definition, references, implementation
+--   - Code actions, rename, and signature help
+--
+-- Keymaps (available when LSP is attached):
+--   K           - Hover documentation
+--   gd          - Go to definition
+--   gD          - Go to declaration
+--   gr          - Find references
+--   gi          - Go to implementation
+--   <leader>D   - Type definition
+--   <leader>rn  - Rename symbol
+--   <leader>ca  - Code actions
+--   [d          - Previous diagnostic
+--   ]d          - Next diagnostic
+--   <leader>dl  - Diagnostics to location list
+--   <C-k>       - Signature help (normal and insert mode)
+--   <leader>cf  - Format with LSP (fallback)
+--
+-- Plugin: nvim-lspconfig
+-- Repo: neovim/nvim-lspconfig
 
 local M = {}
 

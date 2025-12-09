@@ -1,10 +1,24 @@
 -- ============================================
--- Lazy.nvim – Plugin Manager
+-- Lazy.nvim - Plugin Manager Bootstrap
 -- ============================================
+-- This file initializes lazy.nvim, the modern plugin manager for Neovim.
+-- It handles automatic installation and plugin loading.
+--
+-- Plugin Structure:
+--   lua/plugins/*.lua        - Core plugins (always loaded)
+--   lua/plugins/conditional/ - Optional plugins (controlled by config.lua)
+--
+-- Commands:
+--   :Lazy        - Open lazy.nvim UI
+--   :Lazy sync   - Update all plugins
+--   :Lazy clean  - Remove unused plugins
+--   :Lazy health - Check plugin health
+--
+-- Repository: https://github.com/folke/lazy.nvim
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
--- Install lazy.nvim if not present
+-- Auto-install lazy.nvim if not present
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -15,10 +29,11 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 
+-- Add lazy.nvim to runtime path
 vim.opt.rtp:prepend(lazypath)
 
--- Plugins
+-- Initialize lazy.nvim with plugin directories
 require("lazy").setup({
-  { import = "plugins" },
-  { import = "plugins.conditional" },
+  { import = "plugins" },             -- Core plugins
+  { import = "plugins.conditional" }, -- Conditional plugins (Copilot, Claude)
 })

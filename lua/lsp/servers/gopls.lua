@@ -1,5 +1,22 @@
--- lsp/servers/gopls.lua
--- LSP server configuration for Go
+-- ============================================
+-- LSP: gopls (Go Language Server)
+-- ============================================
+-- Official Go language server with comprehensive analysis and tooling.
+-- Optimized for backend/SRE Go development with advanced features enabled.
+--
+-- Features:
+--   - Static analysis (staticcheck, nilness, shadow variables)
+--   - Inlay hints for types and parameters
+--   - Automatic import organization on save
+--   - gofumpt formatting (stricter than gofmt)
+--   - Code lenses (tests, generate, govulncheck, tidy)
+--   - Semantic tokens for better syntax highlighting
+--
+-- Server: gopls (official Google Go team)
+-- Install: :MasonInstall gopls
+--
+-- Keymaps (available in Go files):
+--   - Standard LSP keymaps from plugins/lsp.lua
 
 local lspconfig = require("lspconfig")
 local default = _G.LSP_DEFAULT_CONFIG or {}
@@ -7,46 +24,47 @@ local default = _G.LSP_DEFAULT_CONFIG or {}
 lspconfig.gopls.setup(vim.tbl_deep_extend("force", default, {
 	settings = {
 		gopls = {
-			-- Analysis
+			-- Static analysis features
 			analyses = {
-				unusedparams = true,
-				shadow = true,
-				nilness = true,
-				unusedwrite = true,
-				useany = true,
+				unusedparams = true,  -- Detect unused function parameters
+				shadow = true,        -- Detect shadowed variables
+				nilness = true,       -- Detect potential nil dereferences
+				unusedwrite = true,   -- Detect unused writes
+				useany = true,        -- Suggest using 'any' over 'interface{}'
 			},
-			-- Experimental features
+			-- Experimental postfix completions (e.g., ".for", ".if")
 			experimentalPostfixCompletions = true,
-			-- Hints (inlay hints)
+			-- Inlay hints (inline type information)
 			hints = {
-				assignVariableTypes = true,
-				compositeLiteralFields = true,
-				compositeLiteralTypes = true,
-				constantValues = true,
-				functionTypeParameters = true,
-				parameterNames = true,
-				rangeVariableTypes = true,
+				assignVariableTypes = true,        -- Show types in := assignments
+				compositeLiteralFields = true,     -- Show field names in literals
+				compositeLiteralTypes = true,      -- Show types in composite literals
+				constantValues = true,             -- Show constant values
+				functionTypeParameters = true,     -- Show generic type parameters
+				parameterNames = true,             -- Show parameter names in calls
+				rangeVariableTypes = true,         -- Show types in range loops
 			},
-			-- Format
+			-- Use gofumpt (stricter Go formatter)
 			gofumpt = true,
-			-- Semantics
+			-- Enable semantic tokens (better syntax highlighting)
 			semanticTokens = true,
+			-- Enable staticcheck integration
 			staticcheck = true,
-			-- Codelens
+			-- Code lenses (clickable actions in editor)
 			codelenses = {
-				gc_details = true,
-				generate = true,
-				regenerate_cgo = true,
-				run_govulncheck = true,
-				test = true,
-				tidy = true,
-				upgrade_dependency = true,
-				vendor = true,
+				gc_details = true,          -- Show garbage collector details
+				generate = true,            -- Run go generate
+				regenerate_cgo = true,      -- Regenerate cgo bindings
+				run_govulncheck = true,     -- Check for vulnerabilities
+				test = true,                -- Run tests
+				tidy = true,                -- Run go mod tidy
+				upgrade_dependency = true,  -- Upgrade dependencies
+				vendor = true,              -- Vendor dependencies
 			},
-			-- Imports
-			completeUnimported = true,
-			usePlaceholders = true,
-			-- Build directives
+			-- Import behavior
+			completeUnimported = true,  -- Suggest unimported packages
+			usePlaceholders = true,     -- Use placeholders in completions
+			-- Exclude directories from indexing
 			directoryFilters = {
 				"-.git",
 				"-.vscode",
@@ -56,14 +74,14 @@ lspconfig.gopls.setup(vim.tbl_deep_extend("force", default, {
 			},
 		},
 	},
-	-- Additional configuration for Go
+	-- Custom on_attach for Go-specific features
 	on_attach = function(client, bufnr)
-		-- Call global on_attach first
+		-- Call global on_attach first (LSP keymaps)
 		if default.on_attach then
 			default.on_attach(client, bufnr)
 		end
 
-		-- Organize imports on save
+		-- Auto-organize imports on save
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			buffer = bufnr,
 			callback = function()
@@ -80,5 +98,6 @@ lspconfig.gopls.setup(vim.tbl_deep_extend("force", default, {
 			end,
 		})
 	end,
+	-- Supported file types
 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
 }))

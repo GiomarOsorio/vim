@@ -1,6 +1,34 @@
--- lsp/servers/yamlls.lua
--- LSP server configuration for YAML
--- Includes schemas for Kubernetes, Docker Compose, GitHub Actions, etc.
+-- ============================================
+-- LSP: yamlls (YAML Language Server)
+-- ============================================
+-- Comprehensive YAML language server with extensive schema support.
+-- Optimized for SRE/DevOps workflows: K8s, Docker, CI/CD, IaC, and more.
+--
+-- Features:
+--   - Auto-detection and validation for 15+ tools/platforms
+--   - Schema-based completion and validation
+--   - Formatting with configurable options
+--   - Kubernetes resource validation (deployments, services, etc.)
+--   - Docker Compose validation
+--   - GitHub Actions, GitLab CI, Azure Pipelines schemas
+--   - Ansible playbook validation
+--   - Helm charts and Kustomization support
+--   - ArgoCD application manifests
+--
+-- Server: yaml-language-server (Red Hat)
+-- Install: :MasonInstall yaml-language-server
+--
+-- Supported Schemas:
+--   - Kubernetes manifests (auto-detected by filename patterns)
+--   - Helm charts (Chart.yaml, helmfile.yaml)
+--   - Docker Compose (docker-compose*.yaml)
+--   - GitHub Actions (.github/workflows/*.yaml)
+--   - GitLab CI (.gitlab-ci.yml)
+--   - Azure Pipelines (azure-pipelines*.yaml)
+--   - Ansible playbooks (playbook*.yaml, site.yaml)
+--   - Kustomization (kustomization.yaml)
+--   - Dependabot, Pre-commit, Renovate configs
+--   - ArgoCD applications
 
 local lspconfig = require("lspconfig")
 local default = _G.LSP_DEFAULT_CONFIG or {}

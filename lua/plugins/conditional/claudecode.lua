@@ -1,5 +1,37 @@
--- Claude Code integration for Neovim
--- Provides AI-assisted coding with Claude
+-- ============================================
+-- Plugin: Claude Code (Conditional)
+-- ============================================
+-- Anthropic's Claude AI integration for Neovim.
+-- Only loads if config.enable_claudecode is true in lua/config.lua
+--
+-- Features:
+--   - AI-assisted coding with Claude
+--   - Terminal-based interface
+--   - Git repository awareness
+--   - Contextual code understanding
+--   - Code generation and refactoring suggestions
+--
+-- Keymaps:
+--   <leader>ac  - Toggle Claude Code terminal
+--   <leader>aC  - Open Claude Code
+--   <C-\>       - Toggle from terminal mode
+--
+-- Window Settings:
+--   - Opens in bottom 40% of screen
+--   - Automatically enters insert mode
+--   - Git root detection for context
+--
+-- Requirements:
+--   - Claude Code CLI installed and configured
+--   - Anthropic API key set up
+--   - Active Anthropic account
+--
+-- Enable/Disable:
+--   Set config.enable_claudecode = true/false in lua/config.lua
+--
+-- Plugin: claude-code.nvim
+-- Repo: anthropics/claude-code.nvim
+
 local config = require("config")
 if not config.enable_claudecode then
   return {}

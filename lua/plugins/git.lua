@@ -1,10 +1,55 @@
--- ==============================================
--- Git related plugins
--- ==============================================
+-- ============================================
+-- Plugin: Git Integration
+-- ============================================
+-- Comprehensive Git integration with multiple complementary plugins.
+-- Provides in-editor Git status, diffs, history, and a full TUI interface.
+--
+-- This file contains 4 Git plugins:
+--   1. Gitsigns   - Git decorations and hunk operations in the gutter
+--   2. Fugitive   - Git commands (:Git) integrated in Neovim
+--   3. Diffview   - Advanced diff and merge tool with file history
+--   4. LazyGit    - Full-featured Git TUI (terminal UI)
+--
+-- Gitsigns Features:
+--   - Git diff indicators in sign column
+--   - Inline blame (shows author and time on current line)
+--   - Stage/unstage hunks
+--   - Preview changes
+--   - Navigate between changes
+--
+-- Gitsigns Keymaps:
+--   ]c          - Next change (hunk)
+--   [c          - Previous change (hunk)
+--   <leader>hs  - Stage hunk
+--   <leader>hr  - Reset hunk
+--   <leader>hS  - Stage buffer
+--   <leader>hR  - Reset buffer
+--   <leader>hp  - Preview hunk
+--   <leader>hb  - Toggle inline blame
+--
+-- Fugitive Keymaps (from core/keymaps.lua):
+--   <leader>gs  - Git status (:Git)
+--   <leader>gc  - Git commit
+--   <leader>gp  - Git push
+--   <leader>gl  - Git pull
+--   <leader>gd  - Git diff split
+--   <leader>gb  - Git blame
+--   <leader>gL  - Git log
+--
+-- Diffview Keymaps:
+--   <leader>gv  - Open Diffview (compare changes)
+--   <leader>gV  - Close Diffview
+--   <leader>gh  - File history (current file)
+--   <leader>gH  - Repository history (all files)
+--
+-- LazyGit Keymaps:
+--   <leader>gg  - Open LazyGit TUI
+--
+-- Plugins: gitsigns.nvim, vim-fugitive, diffview.nvim, lazygit.nvim
 
 return {
 	-- ==========================
-	-- Git indicators and actions
+	-- Gitsigns - Git decorations and hunk operations
 	-- ==========================
 	{
 		"lewis6991/gitsigns.nvim",

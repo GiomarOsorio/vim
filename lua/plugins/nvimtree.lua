@@ -1,6 +1,42 @@
+-- ============================================
+-- Plugin: NvimTree (File Explorer)
+-- ============================================
+-- Modern file explorer tree for Neovim with icons and git integration.
+-- Provides a visual way to browse and manage project files.
+--
+-- Features:
+--   - Tree-style file navigation
+--   - Git status indicators
+--   - File/directory operations (create, delete, rename, copy)
+--   - Window picker for opening files in specific splits
+--   - Auto-close when it's the last window
+--   - Shows hidden files (important for SRE work)
+--   - File icons via nvim-web-devicons
+--
+-- Keymaps:
+--   <leader>e - Toggle NvimTree
+--
+-- Inside NvimTree:
+--   <CR>     - Open file/folder
+--   a        - Create file/folder (end with / for folder)
+--   d        - Delete file/folder
+--   r        - Rename file/folder
+--   c        - Copy file/folder
+--   p        - Paste
+--   y        - Copy name
+--   Y        - Copy absolute path
+--   R        - Refresh tree
+--   H        - Toggle hidden files
+--   I        - Toggle ignored files
+--   E        - Expand all folders
+--   W        - Collapse all folders
+--
+-- Plugin: nvim-tree.lua
+-- Repo: nvim-tree/nvim-tree.lua
+
 return {
   "nvim-tree/nvim-tree.lua",
-  -- Lazy load: only load with command or keymap
+  -- Lazy load: only when needed
   cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeOpen" },
   keys = {
     { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Toggle NvimTree" },

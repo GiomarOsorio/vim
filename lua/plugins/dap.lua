@@ -1,9 +1,48 @@
--- ==============================================
--- Debug Adapter Protocol (DAP) Configuration
--- ==============================================
+-- ============================================
+-- Plugin: DAP (Debug Adapter Protocol)
+-- ============================================
+-- Debugging support for Neovim using the Debug Adapter Protocol.
+-- Provides breakpoints, step debugging, variable inspection, and REPL.
+--
+-- Features:
+--   - Set breakpoints (normal and conditional)
+--   - Step through code (into, over, out)
+--   - Variable inspection and hover
+--   - Debug REPL for evaluating expressions
+--   - Visual UI with variable windows
+--   - Virtual text showing variable values
+--   - Auto-open/close UI on debug session
+--
+-- Configured Debuggers:
+--   - JavaScript/TypeScript (pwa-node adapter)
+--   - Bash/Shell (bashdb adapter)
+--
+-- Keymaps (Debug Control):
+--   <leader>db  - Toggle breakpoint
+--   <leader>dB  - Conditional breakpoint
+--   <leader>dc  - Continue/Start debugging
+--   <leader>dC  - Run to cursor
+--   <leader>di  - Step into function
+--   <leader>dO  - Step over line
+--   <leader>do  - Step out of function
+--   <leader>dt  - Terminate debug session
+--   <leader>dP  - Pause execution
+--   <leader>dr  - Toggle REPL
+--   <leader>du  - Toggle DAP UI
+--   <leader>de  - Evaluate expression (normal/visual mode)
+--   <leader>dw  - Show widgets/hover
+--   <leader>dl  - Run last debug configuration
+--
+-- UI Components:
+--   - nvim-dap: Core DAP implementation
+--   - nvim-dap-ui: Visual debugging interface
+--   - nvim-dap-virtual-text: Inline variable values
+--
+-- Plugins: nvim-dap, nvim-dap-ui, nvim-dap-virtual-text
+-- Repos: mfussenegger/nvim-dap, rcarriga/nvim-dap-ui
 
 return {
-  -- nvim-dap core
+  -- DAP Core - Debug engine
   {
     "mfussenegger/nvim-dap",
     dependencies = {

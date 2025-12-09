@@ -1,7 +1,38 @@
+-- ============================================
+-- Plugin: Telescope (Fuzzy Finder)
+-- ============================================
+-- Powerful fuzzy finder for files, text, buffers, and more.
+-- Essential tool for fast navigation in large codebases.
+--
+-- Features:
+--   - Fuzzy file finding with preview
+--   - Live grep (search text across project)
+--   - Buffer and recent file navigation
+--   - LSP diagnostic search
+--   - Help tag search
+--   - Fast C-based fuzzy matching (fzf-native)
+--   - Hidden file support
+--
+-- Keymaps:
+--   <leader>ff - Find files
+--   <leader>fg - Live grep (search text in project)
+--   <leader>fb - List open buffers
+--   <leader>fh - Search help tags
+--   <leader>fo - Recent files (oldfiles)
+--   <leader>fd - List diagnostics
+--
+-- Inside Telescope:
+--   <C-j>/<C-k> - Navigate up/down
+--   <C-q>       - Send results to quickfix list
+--   <Esc>       - Close telescope
+--
+-- Plugin: telescope.nvim + telescope-fzf-native.nvim
+-- Repo: nvim-telescope/telescope.nvim
+
 return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
-  -- Lazy load: only load with commands or keymaps
+  -- Lazy load: only load when needed
   cmd = "Telescope",
   keys = {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
@@ -15,7 +46,7 @@ return {
     "nvim-lua/plenary.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
+      build = "make", -- Compiles C code for faster fuzzy matching
     },
   },
 

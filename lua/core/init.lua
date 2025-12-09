@@ -1,18 +1,24 @@
--- ===============================
--- Core Configuration
--- ===============================
+-- ============================================
+-- Core Configuration Loader
+-- ============================================
+-- This file orchestrates the loading of all core Neovim configurations.
+-- Load order matters: options -> keymaps -> autocmds -> plugins -> LSP
+--
+-- Note: This file is NOT used by init.lua directly.
+-- It exists for alternative entry points or testing.
+-- The main init.lua loads these modules individually for better control.
 
--- General options
+-- 1. General options (must load first)
 require("core.options")
 
--- Global keymaps
+-- 2. Global keymaps (depends on options for leader key)
 require("core.keymaps")
 
--- Autocommands
+-- 3. Autocommands (depends on keymaps for some integrations)
 require("core.autocmds")
 
--- Plugin manager (lazy.nvim)
+-- 4. Plugin manager (loads all plugins)
 require("core.lazy")
 
--- LSP configurations
+-- 5. LSP configurations (depends on plugins being loaded)
 require("lsp")

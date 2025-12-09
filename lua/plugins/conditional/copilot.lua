@@ -1,4 +1,49 @@
--- GitHub Copilot integration
+-- ============================================
+-- Plugin: GitHub Copilot (Conditional)
+-- ============================================
+-- AI-powered code completion from GitHub Copilot.
+-- Only loads if config.enable_copilot is true in lua/config.lua
+--
+-- Features:
+--   - AI code suggestions as you type
+--   - Multi-line completions
+--   - Copilot Chat for interactive AI assistance
+--   - Code explanation, review, fixing, optimization
+--   - Test and documentation generation
+--   - Integration with nvim-cmp
+--
+-- Keymaps (Suggestions):
+--   <C-j>     - Accept suggestion
+--   <M-]>     - Next suggestion
+--   <M-[>     - Previous suggestion
+--   <C-]>     - Dismiss suggestion
+--
+-- Copilot Panel:
+--   <M-CR>    - Open panel
+--   [[/]]     - Jump between suggestions
+--   <CR>      - Accept in panel
+--   gr        - Refresh suggestions
+--
+-- CopilotChat Keymaps:
+--   <leader>cc  - Toggle chat
+--   <leader>ce  - Explain code
+--   <leader>cr  - Review code
+--   <leader>cf  - Fix code
+--   <leader>co  - Optimize code
+--   <leader>cd  - Generate documentation
+--   <leader>ct  - Generate tests
+--
+-- Requirements:
+--   - Node.js installed
+--   - GitHub Copilot subscription
+--   - Run :Copilot auth to authenticate
+--
+-- Enable/Disable:
+--   Set config.enable_copilot = true/false in lua/config.lua
+--
+-- Plugins: copilot.lua, copilot-cmp, CopilotChat.nvim
+-- Repos: zbirenbaum/copilot.lua, CopilotC-Nvim/CopilotChat.nvim
+
 local config = require("config")
 if not config.enable_copilot then
   return {}

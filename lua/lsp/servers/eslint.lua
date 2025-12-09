@@ -1,5 +1,26 @@
--- lsp/servers/eslint.lua
--- LSP server configuration for ESLint
+-- ============================================
+-- LSP: eslint (ESLint Language Server)
+-- ============================================
+-- ESLint language server for JavaScript/TypeScript linting and formatting.
+-- Provides real-time linting and automatic fixes on save.
+--
+-- Features:
+--   - Real-time ESLint diagnostics (as you type)
+--   - Auto-fix on save (formatting + lint fixes)
+--   - Code actions to disable rules
+--   - Documentation links for ESLint rules
+--   - Support for JS, TS, Vue, Svelte, Astro
+--   - Auto-detection of ESLint config files
+--
+-- Server: vscode-eslint-language-server (Microsoft)
+-- Install: :MasonInstall eslint-lsp
+--
+-- External Dependency:
+--   - ESLint must be installed in project: npm install -D eslint
+--   - ESLint config file (.eslintrc, eslint.config.js, etc.)
+--
+-- Note: Works with plugins/conform.lua and core/autocmds.lua
+--       for automatic fixing on save
 
 local lspconfig = require("lspconfig")
 local default = _G.LSP_DEFAULT_CONFIG or {}

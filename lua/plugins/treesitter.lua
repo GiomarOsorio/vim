@@ -1,6 +1,34 @@
--- ==============================================
--- Treesitter Configuration
--- ==============================================
+-- ============================================
+-- Plugin: Treesitter (Syntax Parsing & Highlighting)
+-- ============================================
+-- Advanced syntax highlighting and code understanding using tree-sitter parsers.
+-- Provides better syntax highlighting, indentation, and text objects.
+--
+-- Features:
+--   - Accurate syntax highlighting (better than regex)
+--   - Smart code folding based on syntax
+--   - Incremental selection (expand/shrink selection by syntax nodes)
+--   - Auto-indentation
+--   - 40+ language parsers pre-installed
+--
+-- Installed Languages:
+--   - Core: Lua, Vim, Vimdoc, Query
+--   - Backend: JavaScript, TypeScript, JSON, Python, Go
+--   - SRE/DevOps: YAML, Dockerfile, Terraform, Bash, HCL
+--   - Git: git_config, gitcommit, gitignore
+--   - Others: Markdown, TOML, CSV, Regex, Requirements
+--
+-- Keymaps (incremental selection):
+--   <CR>    - Init/expand selection to next syntax node
+--   <S-CR>  - Expand selection to scope
+--   <BS>    - Shrink selection
+--
+-- Folding:
+--   Treesitter-based folding enabled (folds based on syntax structure)
+--   All folds open by default (foldlevel=99)
+--
+-- Plugin: nvim-treesitter
+-- Repo: nvim-treesitter/nvim-treesitter
 
 return {
 	"nvim-treesitter/nvim-treesitter",

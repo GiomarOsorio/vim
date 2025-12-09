@@ -1,5 +1,28 @@
--- lsp/servers/ansiblels.lua
--- LSP server configuration for Ansible
+-- ============================================
+-- LSP: ansiblels (Ansible Language Server)
+-- ============================================
+-- Language server for Ansible playbooks, roles, and tasks.
+-- Provides validation, completion, and linting for Ansible YAML files.
+--
+-- Features:
+--   - Ansible module completion and documentation
+--   - Playbook and role validation
+--   - Integration with ansible-lint for best practices
+--   - Fully qualified collection name support
+--   - Module option aliases and redirects
+--   - Automatic Ansible file detection
+--
+-- Server: ansible-language-server (Red Hat)
+-- Install: :MasonInstall ansible-language-server
+--
+-- External Dependencies:
+--   - ansible (required) - pip install ansible
+--   - ansible-lint (optional) - pip install ansible-lint
+--
+-- File Detection:
+--   Automatically sets filetype to yaml.ansible for:
+--   - Files in playbooks/, roles/, inventory/ directories
+--   - Files matching playbook*.yaml, site.yaml, main.yaml patterns
 
 local lspconfig = require("lspconfig")
 local default = _G.LSP_DEFAULT_CONFIG or {}

@@ -1,11 +1,35 @@
--- mason.lua
--- Unified configuration for:
--- - mason.nvim
--- - mason-lspconfig
--- - mason-tool-installer
+-- ============================================
+-- Plugin: Mason (LSP/Tool Package Manager)
+-- ============================================
+-- Unified configuration for Mason ecosystem: installs and manages LSP servers,
+-- formatters, linters, and debug adapters.
 --
--- Cleaned up duplicates, incorrect names,
--- and used only official tool names.
+-- Features:
+--   - Automatic installation of LSP servers and tools
+--   - Auto-update on startup
+--   - Integrated with lspconfig for seamless LSP setup
+--   - Hot-reload of newly installed LSP servers (no restart needed)
+--   - Centralized tool management
+--
+-- Components:
+--   1. mason.nvim - Base package manager UI (:Mason)
+--   2. mason-lspconfig - Bridges Mason with nvim-lspconfig
+--   3. mason-tool-installer - Auto-installs formatters, linters, etc.
+--
+-- Installed Tools:
+--   LSP Servers: 13 servers (ansiblels, bashls, dockerls, gopls, etc.)
+--   Formatters: stylua, prettier, black, shfmt, gofumpt, etc.
+--   Linters: shellcheck, yamllint, golangci-lint, ruff, etc.
+--   DAP: js-debug-adapter
+--
+-- Commands:
+--   :Mason           - Open Mason UI to manage packages
+--   :MasonInstall    - Install a specific package
+--   :MasonUpdate     - Update all installed packages
+--   :MasonUninstall  - Remove a package
+--
+-- Plugins: mason.nvim, mason-lspconfig.nvim, mason-tool-installer.nvim
+-- Repos: williamboman/mason.nvim, williamboman/mason-lspconfig.nvim
 
 return {
 	{

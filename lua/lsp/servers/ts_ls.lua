@@ -1,5 +1,27 @@
--- lsp/servers/ts_ls.lua
--- LSP server configuration for TypeScript/JavaScript
+-- ============================================
+-- LSP: ts_ls (TypeScript Language Server)
+-- ============================================
+-- Official TypeScript language server from Microsoft.
+-- Provides comprehensive TypeScript/JavaScript support with advanced features.
+--
+-- Features:
+--   - TypeScript and JavaScript intellisense
+--   - Inlay hints for types and parameters
+--   - Auto-import suggestions
+--   - Organize imports command
+--   - Function signature completion
+--   - Support for React (JSX/TSX)
+--   - CommonJS diagnostic filtering
+--
+-- Server: typescript-language-server (Microsoft)
+-- Install: :MasonInstall typescript-language-server
+--
+-- Keymaps (available in TS/JS files):
+--   <leader>oi - Organize imports
+--   Standard LSP keymaps from plugins/lsp.lua
+--
+-- Project Detection:
+--   Looks for tsconfig.json, jsconfig.json, or package.json
 
 local lspconfig = require("lspconfig")
 local default = _G.LSP_DEFAULT_CONFIG or {}

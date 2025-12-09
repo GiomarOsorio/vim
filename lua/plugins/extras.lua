@@ -1,12 +1,54 @@
--- ==============================================
--- Additional productivity plugins
--- Autopairs, Surround, Comment, Todo-comments, Markdown Preview
--- ==============================================
+-- ============================================
+-- Plugin: Extra Productivity Tools
+-- ============================================
+-- Collection of essential productivity plugins for a better editing experience.
+-- Includes markdown preview, autopairs, surround, commenting, TODOs, and navigation.
+--
+-- This file contains 6 productivity plugins:
+--   1. Markdown Preview  - Live markdown preview in browser
+--   2. Autopairs         - Auto-close brackets, quotes, etc.
+--   3. Surround          - Manipulate surrounding characters
+--   4. Comment           - Smart commenting
+--   5. Todo-comments     - Highlight and search TODO/FIXME/HACK
+--   6. Flash             - Fast navigation with improved search
+--
+-- Markdown Preview:
+--   <leader>mp - Toggle preview in browser
+--
+-- Autopairs:
+--   - Auto-closes: (), [], {}, "", '', ``
+--   - Treesitter-aware (skips in strings/comments)
+--
+-- Surround:
+--   cs"'   - Change surrounding " to '
+--   ds"    - Delete surrounding "
+--   ysiw)  - Surround word with ()
+--   yss)   - Surround entire line
+--
+-- Comment:
+--   gcc    - Toggle comment on current line
+--   gc     - Toggle comment on selection (visual mode)
+--   gcap   - Comment around paragraph
+--   gb     - Block comment
+--
+-- Todo-comments:
+--   Highlights: TODO, FIXME, HACK, WARN, PERF, NOTE, TEST
+--   ]t / [t         - Next/Previous TODO
+--   <leader>xt      - Show TODOs in Trouble
+--   <leader>ft      - Search TODOs with Telescope
+--
+-- Flash (Fast Navigation):
+--   s   - Flash jump (search and jump with labels)
+--   S   - Flash treesitter (jump by syntax nodes)
+--   r   - Remote flash (operator mode)
+--   R   - Treesitter search
+--
+-- Plugins: markdown-preview.nvim, nvim-autopairs, nvim-surround,
+--          Comment.nvim, todo-comments.nvim, flash.nvim
 
 return {
   -- ==========================
-  -- Markdown Preview
-  -- Preview markdown files in browser
+  -- Markdown Preview - Live browser preview
   -- ==========================
   {
     "iamcco/markdown-preview.nvim",

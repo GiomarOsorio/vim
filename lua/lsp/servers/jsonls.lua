@@ -1,5 +1,24 @@
--- lsp/servers/jsonls.lua
--- LSP server configuration for JSON
+-- ============================================
+-- LSP: jsonls (JSON Language Server)
+-- ============================================
+-- VSCode's JSON language server with extensive schema support.
+-- Integrates with schemastore plugin for automatic schema detection.
+--
+-- Features:
+--   - Schema validation for common JSON config files
+--   - Auto-completion based on JSON schemas
+--   - Format support (including JSONC - JSON with comments)
+--   - Integration with schemastore for 500+ schemas
+--
+-- Server: vscode-json-language-server (Microsoft)
+-- Install: :MasonInstall json-lsp
+--
+-- Schemas (via schemastore):
+--   - package.json, tsconfig.json
+--   - .eslintrc, .prettierrc
+--   - And 500+ more common config files
+--
+-- Dependency: plugins/schemastore.lua (optional but recommended)
 
 local lspconfig = require("lspconfig")
 local default = _G.LSP_DEFAULT_CONFIG or {}

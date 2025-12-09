@@ -1,9 +1,62 @@
--- UI configuration: Theme, colorscheme, dashboard and UI plugins
+-- ============================================
+-- Plugin: UI Components (Theme & Interface)
+-- ============================================
+-- Complete UI configuration including theme, statusline, bufferline, dashboard,
+-- notifications, and visual enhancements.
+--
+-- This file contains 5 major UI plugins:
+--   1. Gruvbox Theme - Warm, comfortable color scheme
+--   2. Lualine - Customized statusline at the bottom
+--   3. Bufferline - Buffer tabs with diagnostics and navigation
+--   4. Dashboard - TurtleSRE startup screen
+--   5. Indent Blankline - Visual indent guides
+--   6. nvim-notify - Enhanced notification system
+--
+-- Theme: Gruvbox (medium contrast)
+--   - Warm, earthy colors for reduced eye strain
+--   - Medium contrast (not too harsh)
+--   - Custom Gruvbox theme for lualine and bufferline
+--
+-- Statusline (Lualine) Features:
+--   - Mode indicator with icons
+--   - Git branch and diff stats
+--   - File path with modification status
+--   - LSP diagnostics (errors, warnings, info, hints)
+--   - File type, encoding, and format
+--   - Cursor position and progress
+--   - Extensions for lazy, fugitive, trouble
+--
+-- Bufferline Features:
+--   - Buffer tabs with LSP diagnostics
+--   - Underline indicator for active buffer
+--   - Sidebar offsets (NvimTree, Lazy, etc.)
+--   - Buffer pinning, reordering, and navigation
+--   - Hover previews
+--   - Mouse support (click to switch, middle-click to close)
+--
+-- Bufferline Keymaps:
+--   <Tab>/<S-Tab>   - Next/Previous buffer
+--   <leader>bn/bp   - Move buffer right/left
+--   <leader>bP      - Pin/unpin buffer
+--   <leader>1-9     - Go to buffer by position
+--   <leader>bc      - Pick buffer to close
+--   <leader>bC      - Close other buffers
+--   <leader>bl/br   - Close buffers to left/right
+--   <leader>bb      - Pick buffer
+--   <leader>bs/bS   - Sort by directory/extension
+--
+-- Dashboard (TurtleSRE):
+--   - ASCII art logo on startup
+--   - Quick actions: New file, Open tree, Find files, Recent files
+--   - Controlled by config.enable_dashboard flag
+--
+-- Plugins: gruvbox.nvim, lualine.nvim, bufferline.nvim, dashboard-nvim,
+--          indent-blankline.nvim, nvim-notify
 
 return {
 
 	------------------------------------------------------------------------------
-	-- THEME (Gruvbox) - Immediate load, needed for UI
+	-- THEME (Gruvbox) - Loads immediately for consistent UI
 	------------------------------------------------------------------------------
 	{
 		"ellisonleao/gruvbox.nvim",

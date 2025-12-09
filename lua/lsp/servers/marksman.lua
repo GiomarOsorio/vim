@@ -1,5 +1,27 @@
--- lsp/servers/marksman.lua
--- LSP server configuration for Markdown
+-- ============================================
+-- LSP: marksman (Markdown Language Server)
+-- ============================================
+-- Language server for Markdown with wiki-style linking and navigation.
+-- Designed for documentation, note-taking, and technical writing.
+--
+-- Features:
+--   - Markdown link completion and navigation
+--   - Wiki-style [[links]] support
+--   - Document outline and symbols
+--   - Reference finding across documents
+--   - Hover preview for links
+--   - Support for MDX files
+--
+-- Server: marksman
+-- Install: :MasonInstall marksman
+--
+-- Keymaps (available in Markdown files):
+--   <leader>mp - Preview markdown (requires markdown-preview plugin)
+--   <leader>mt - Toggle checkbox in task lists ([ ] <-> [x])
+--   Standard LSP keymaps from plugins/lsp.lua
+--
+-- Configuration:
+--   Place .marksman.toml in project root for custom settings
 
 local lspconfig = require("lspconfig")
 local default = _G.LSP_DEFAULT_CONFIG or {}

@@ -1,9 +1,38 @@
+-- ============================================
+-- Plugin: vim-terraform (Terraform Enhancements)
+-- ============================================
+-- Terraform syntax highlighting, indentation, and formatting support.
+-- Complements terraformls LSP server for complete Terraform development experience.
+--
+-- Features:
+--   - Enhanced Terraform syntax highlighting
+--   - Smart indentation and alignment
+--   - Auto-format on save (terraform fmt)
+--   - Module folding support
+--   - Correct filetype detection (.tf, .tfvars)
+--
+-- Keymaps:
+--   <leader>tp  - Run terraform plan (from lsp/servers/terraformls.lua)
+--   <leader>ti  - Run terraform init
+--   <leader>tv  - Run terraform validate
+--   <leader>ta  - Run terraform apply
+--
+-- File Types:
+--   - *.tf (Terraform configuration)
+--   - *.tfvars (Terraform variables)
+--
+-- Note: Works with lsp/servers/terraformls.lua for LSP features
+--       (completion, validation, hover documentation)
+--
+-- Plugin: vim-terraform
+-- Repo: hashivim/vim-terraform
+
 return {
   "hashivim/vim-terraform",
   ft = { "terraform", "tf", "tfvars" },
 
   config = function()
-    -- Enable smart indentation
+    -- Smart indentation and alignment
     vim.g.terraform_align = 1
 
     -- Enable terraform fmt on save

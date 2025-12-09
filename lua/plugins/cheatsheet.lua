@@ -1,13 +1,54 @@
--- ==============================================
--- CheatSheet - Dynamic view of all keymaps
--- Command: :CheatSheet or <leader>?
--- ==============================================
+-- ============================================
+-- Plugin: Custom CheatSheet
+-- ============================================
+-- Dynamic keymap reference in a beautiful floating window.
+-- Shows all configured keybindings organized by category.
+--
+-- Features:
+--   - Real-time keymap discovery from Neovim configuration
+--   - Categorized keymaps (Files, Git, LSP, Debug, etc.)
+--   - QWERTY and Dvorak Programming layout reference
+--   - Beautiful bordered floating window
+--   - Scrollable with j/k or t/n (Dvorak)
+--   - Always up-to-date (dynamically generated)
+--
+-- Categories:
+--   - Movement (QWERTY vs Dvorak comparison)
+--   - Files and Buffers
+--   - Search (Telescope)
+--   - Windows and Splits
+--   - LSP (Code navigation, actions)
+--   - Diagnostics (Trouble)
+--   - Git operations
+--   - Debug (DAP)
+--   - Terraform
+--   - Terminal
+--   - Help
+--
+-- Keymaps:
+--   <leader>?     - Open CheatSheet
+--   :CheatSheet   - Open CheatSheet command
+--
+-- Inside CheatSheet:
+--   q / <Esc>     - Close
+--   j/k or t/n    - Scroll up/down
+--   <C-d>/<C-u>   - Page down/up
+--   gg / G        - Top/Bottom
+--
+-- Implementation:
+--   - Uses plenary.nvim as dependency
+--   - Dynamically queries vim.api.nvim_get_keymap()
+--   - Filters and categorizes by description patterns
+--   - Formats in a bordered ASCII box
+--
+-- Plugin: Custom implementation (not a separate plugin)
+-- Dependency: plenary.nvim
 
 return {
   "nvim-lua/plenary.nvim",
 
   config = function()
-    -- Static content for movement keys (these don't change)
+    -- Static movement reference (QWERTY vs Dvorak)
     local static_movement = {
       "╔══════════════════════════════════════════════════════════════════════════════╗",
       "║                           NEOVIM CHEATSHEET - SRE                            ║",

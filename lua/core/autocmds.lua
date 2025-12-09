@@ -1,6 +1,17 @@
--- ==============================================
+-- ============================================
 -- Autocommands
--- ==============================================
+-- ============================================
+-- This file defines automatic behaviors triggered by Neovim events.
+-- Autocommands execute code in response to events like file open, save, etc.
+--
+-- Sections:
+--   1. NvimTree - Auto-open on startup
+--   2. Fugitive - Custom :Git command behavior
+--   3. ESLint - Auto-fix on save for JS/TS
+--   4. Terraform - Auto-format on save
+--   5. Filetype - Custom filetype detection
+--
+-- Note: Each autocommand uses an augroup for proper cleanup on reload.
 
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
