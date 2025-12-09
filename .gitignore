@@ -3,3 +3,4 @@ plugin/packer_compiled.lua
 node_modules/
 .claude/
 lazy-lock.json
+*.mcp.json

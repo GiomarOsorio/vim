@@ -24,7 +24,7 @@ return {
 	------------------------------------------------------------------------------
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "VeryLazy",
+		lazy = false,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			-- Gruvbox colors
@@ -81,18 +81,18 @@ return {
 				options = {
 					theme = gruvbox_theme,
 					globalstatus = true,
-					section_separators = { left = "", right = "" },
+					section_separators = { left = "", right = "" },
 					component_separators = { left = "", right = "" },
 				},
 				sections = {
 					lualine_a = {
-						{ "mode", separator = { left = "" }, right_padding = 2 },
+						{ "mode", separator = { left = "" }, right_padding = 2, icon = "" },
 					},
 					lualine_b = {
-						{ "branch", icon = "" },
+						{ "branch", icon = "" },
 						{
 							"diff",
-							symbols = { added = " ", modified = " ", removed = " " },
+							symbols = { added = "★", modified = "≋", removed = "⌀" },
 							diff_color = {
 								added = { fg = colors.green },
 								modified = { fg = colors.yellow },
@@ -102,12 +102,13 @@ return {
 					},
 					lualine_c = {
 						{ "filename", path = 1, symbols = { modified = " ●", readonly = " " } },
+						"%=",
 					},
 					lualine_x = {
 						{
 							"diagnostics",
 							sources = { "nvim_diagnostic" },
-							symbols = { error = " ", warn = " ", info = " ", hint = "󰌵 " },
+							symbols = { error = "× ", warn = "⚠︎ ", info = "🛈 ", hint = "󰌵 " },
 							diagnostics_color = {
 								error = { fg = colors.red },
 								warn = { fg = colors.yellow },
@@ -123,7 +124,7 @@ return {
 					},
 					lualine_z = {
 						{ "progress" },
-						{ "location", separator = { right = "" }, left_padding = 2 },
+						{ "location", separator = { right = "" }, left_padding = 2 },
 					},
 				},
 				inactive_sections = {
@@ -134,7 +135,7 @@ return {
 					lualine_y = {},
 					lualine_z = {},
 				},
-				extensions = { "nvim-tree", "lazy", "fugitive", "trouble" },
+				extensions = { "lazy", "fugitive", "trouble" },
 			})
 		end,
 	},
@@ -597,12 +598,19 @@ return {
 	------------------------------------------------------------------------------
 	{
 		"glepnir/dashboard-nvim",
-		event = "VimEnter",
+		cond = require("config").enable_dashboard,
+		lazy = false,
+		priority = 900,
 		config = function()
 			local db = require("dashboard")
 
 			db.setup({
 				theme = "hyper",
+				hide = {
+					statusline = false, -- Don't hide statusline
+					tabline = false,
+					winbar = false,
+				},
 				config = {
 					header = {
 						"",

@@ -14,6 +14,9 @@ M.enable_copilot = false
 -- Enable/disable Claude Code AI assistant
 M.enable_claudecode = false
 
+-- Enable/disable Dashboard on startup
+M.enable_dashboard = true
+
 -- Default colorscheme
 M.colorscheme = "grubvox"
 
