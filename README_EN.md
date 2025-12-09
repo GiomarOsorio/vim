@@ -1,5 +1,5 @@
-<a href="README_EN.md">
-  <img src="https://img.shields.io/badge/lang-English-blue.svg" alt="English">
+<a href="README.md">
+  <img src="https://img.shields.io/badge/lang-Español-green.svg" alt="Español">
 </a>
 
 # TurtleSRE Neovim Configuration
@@ -229,7 +229,7 @@ Ensure all required LSP servers, formatters, and linters are installed. If any a
 │   │
 │   └── utils.lua                 # Utility functions
 │
-└── README.md                     # This file
+└── README.md                     # Documentation
 ```
 
 ---

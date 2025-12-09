@@ -1,0 +1,6 @@
+plugin/packer_compiled.lua
+*.log
+node_modules/
+.claude/
+lazy-lock.json
+*.mcp.json
