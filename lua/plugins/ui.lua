@@ -34,16 +34,7 @@
 --   - Hover previews
 --   - Mouse support (click to switch, middle-click to close)
 --
--- Bufferline Keymaps:
---   <Tab>/<S-Tab>   - Next/Previous buffer
---   <leader>bn/bp   - Move buffer right/left
---   <leader>bP      - Pin/unpin buffer
---   <leader>1-9     - Go to buffer by position
---   <leader>bc      - Pick buffer to close
---   <leader>bC      - Close other buffers
---   <leader>bl/br   - Close buffers to left/right
---   <leader>bb      - Pick buffer
---   <leader>bs/bS   - Sort by directory/extension
+-- Bufferline Keymaps: See lua/core/keymaps.lua
 --
 -- Dashboard (TurtleSRE):
 --   - ASCII art logo on startup
@@ -255,9 +246,9 @@ return {
 					diagnostics_update_on_event = true,
 					diagnostics_indicator = function(count, level, diagnostics_dict, context)
 						local icons = {
-							error = " ",
-							warning = " ",
-							info = " ",
+							error = "✘ ",
+							warning = "⟁ ",
+							info = "🛈 ",
 							hint = "󰌵 ",
 						}
 						local icon = icons[level] or ""
@@ -297,7 +288,7 @@ return {
 
 					-- Show close icons
 					show_buffer_icons = true,
-					show_buffer_close_icons = true,
+					show_buffer_close_icons = false,
 					show_close_icon = true,
 					show_tab_indicators = true,
 					show_duplicate_prefix = true,
@@ -306,12 +297,12 @@ return {
 					persist_buffer_sort = true,
 
 					-- Separator
-					separator_style = "thin",
+					separator_style = "slant",
 
 					-- Hover events
 					hover = {
 						enabled = true,
-						delay = 150,
+						delay = 100,
 						reveal = { "close" },
 					},
 
@@ -605,44 +596,7 @@ return {
 					},
 				},
 			})
-
-			-- Keymaps for bufferline
-			local map = vim.keymap.set
-
-			-- Navigation
-			map("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
-			map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
-
-			-- Reordering (move buffers)
-			map("n", "<leader>bn", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer right" })
-			map("n", "<leader>bp", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer left" })
-
-			-- Pinning
-			map("n", "<leader>bP", "<cmd>BufferLineTogglePin<cr>", { desc = "Pin/Unpin buffer" })
-
-			-- Go to buffer by position
-			map("n", "<leader>1", "<cmd>BufferLineGoToBuffer 1<cr>", { desc = "Go to buffer 1" })
-			map("n", "<leader>2", "<cmd>BufferLineGoToBuffer 2<cr>", { desc = "Go to buffer 2" })
-			map("n", "<leader>3", "<cmd>BufferLineGoToBuffer 3<cr>", { desc = "Go to buffer 3" })
-			map("n", "<leader>4", "<cmd>BufferLineGoToBuffer 4<cr>", { desc = "Go to buffer 4" })
-			map("n", "<leader>5", "<cmd>BufferLineGoToBuffer 5<cr>", { desc = "Go to buffer 5" })
-			map("n", "<leader>6", "<cmd>BufferLineGoToBuffer 6<cr>", { desc = "Go to buffer 6" })
-			map("n", "<leader>7", "<cmd>BufferLineGoToBuffer 7<cr>", { desc = "Go to buffer 7" })
-			map("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<cr>", { desc = "Go to buffer 8" })
-			map("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<cr>", { desc = "Go to buffer 9" })
-
-			-- Close buffers
-			map("n", "<leader>bc", "<cmd>BufferLinePickClose<cr>", { desc = "Pick buffer to close" })
-			map("n", "<leader>bC", "<cmd>BufferLineCloseOthers<cr>", { desc = "Close other buffers" })
-			map("n", "<leader>bl", "<cmd>BufferLineCloseLeft<cr>", { desc = "Close buffers to the left" })
-			map("n", "<leader>br", "<cmd>BufferLineCloseRight<cr>", { desc = "Close buffers to the right" })
-
-			-- Pick buffer
-			map("n", "<leader>bb", "<cmd>BufferLinePick<cr>", { desc = "Pick buffer" })
-
-			-- Sort
-			map("n", "<leader>bs", "<cmd>BufferLineSortByDirectory<cr>", { desc = "Sort by directory" })
-			map("n", "<leader>bS", "<cmd>BufferLineSortByExtension<cr>", { desc = "Sort by extension" })
+			-- Keymaps are centralized in lua/core/keymaps.lua
 		end,
 	},
 

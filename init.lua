@@ -39,5 +39,5 @@ require("core.lazy")
 local config = require("config")
 
 pcall(function()
-  vim.cmd("colorscheme " .. config.colorscheme)
+	vim.cmd("colorscheme " .. config.colorscheme)
 end)

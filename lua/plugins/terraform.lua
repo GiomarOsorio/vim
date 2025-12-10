@@ -11,11 +11,8 @@
 --   - Module folding support
 --   - Correct filetype detection (.tf, .tfvars)
 --
--- Keymaps:
---   <leader>tp  - Run terraform plan (from lsp/servers/terraformls.lua)
---   <leader>ti  - Run terraform init
---   <leader>tv  - Run terraform validate
---   <leader>ta  - Run terraform apply
+-- Keymaps: See lua/core/keymaps.lua for <leader>tp (terraform plan)
+--           See lua/lsp/servers/terraformls.lua for buffer-local keymaps
 --
 -- File Types:
 --   - *.tf (Terraform configuration)
@@ -48,10 +45,6 @@ return {
         tfvars = "terraform",
       },
     })
-
-    -- Useful keymap: show plan preview (if terraform exists in path)
-    vim.keymap.set("n", "<leader>tp", function()
-      vim.cmd("!terraform plan")
-    end, { desc = "Terraform Plan" })
+    -- Keymaps are centralized in lua/core/keymaps.lua
   end,
 }

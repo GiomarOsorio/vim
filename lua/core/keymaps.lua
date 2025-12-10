@@ -21,8 +21,12 @@
 --   9. Copilot - AI completion accept
 --  10. Format - Code formatting
 --  11. Git - Fugitive commands
+--  12. Bufferline - Buffer tabs navigation
+--  13. Terraform - Terraform CLI commands
+--  14. CheatSheet - Quick reference
 --
--- Note: Plugin-specific keymaps are defined in their respective files.
+-- Note: LSP keymaps are in lua/plugins/lsp.lua (buffer-local on_attach).
+--       Plugin lazy-loading keymaps stay in their respective plugin files.
 
 local map = vim.keymap.set
 
@@ -193,3 +197,53 @@ map("n", "<leader>gl", ":Git pull<CR>", { desc = "Git pull" })
 map("n", "<leader>gd", ":Gdiffsplit<CR>", { desc = "Git diff split" })
 map("n", "<leader>gb", ":Git blame<CR>", { desc = "Git blame" })
 map("n", "<leader>gL", ":Git log<CR>", { desc = "Git log" })
+
+-- ============================================
+-- Bufferline
+-- ============================================
+-- Navigation
+map("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
+
+-- Reordering (move buffers)
+map("n", "<leader>bn", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer right" })
+map("n", "<leader>bp", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer left" })
+
+-- Pinning
+map("n", "<leader>bP", "<cmd>BufferLineTogglePin<cr>", { desc = "Pin/Unpin buffer" })
+
+-- Go to buffer by position
+map("n", "<leader>1", "<cmd>BufferLineGoToBuffer 1<cr>", { desc = "Go to buffer 1" })
+map("n", "<leader>2", "<cmd>BufferLineGoToBuffer 2<cr>", { desc = "Go to buffer 2" })
+map("n", "<leader>3", "<cmd>BufferLineGoToBuffer 3<cr>", { desc = "Go to buffer 3" })
+map("n", "<leader>4", "<cmd>BufferLineGoToBuffer 4<cr>", { desc = "Go to buffer 4" })
+map("n", "<leader>5", "<cmd>BufferLineGoToBuffer 5<cr>", { desc = "Go to buffer 5" })
+map("n", "<leader>6", "<cmd>BufferLineGoToBuffer 6<cr>", { desc = "Go to buffer 6" })
+map("n", "<leader>7", "<cmd>BufferLineGoToBuffer 7<cr>", { desc = "Go to buffer 7" })
+map("n", "<leader>8", "<cmd>BufferLineGoToBuffer 8<cr>", { desc = "Go to buffer 8" })
+map("n", "<leader>9", "<cmd>BufferLineGoToBuffer 9<cr>", { desc = "Go to buffer 9" })
+
+-- Close buffers
+map("n", "<leader>bc", "<cmd>BufferLinePickClose<cr>", { desc = "Pick buffer to close" })
+map("n", "<leader>bC", "<cmd>BufferLineCloseOthers<cr>", { desc = "Close other buffers" })
+map("n", "<leader>bl", "<cmd>BufferLineCloseLeft<cr>", { desc = "Close buffers to the left" })
+map("n", "<leader>br", "<cmd>BufferLineCloseRight<cr>", { desc = "Close buffers to the right" })
+
+-- Pick buffer
+map("n", "<leader>bb", "<cmd>BufferLinePick<cr>", { desc = "Pick buffer" })
+
+-- Sort
+map("n", "<leader>bs", "<cmd>BufferLineSortByDirectory<cr>", { desc = "Sort by directory" })
+map("n", "<leader>bS", "<cmd>BufferLineSortByExtension<cr>", { desc = "Sort by extension" })
+
+-- ============================================
+-- Terraform
+-- ============================================
+map("n", "<leader>tp", function()
+	vim.cmd("!terraform plan")
+end, { desc = "Terraform Plan" })
+
+-- ============================================
+-- CheatSheet
+-- ============================================
+map("n", "<leader>?", "<cmd>CheatSheet<cr>", { desc = "CheatSheet" })
