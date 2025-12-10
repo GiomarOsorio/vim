@@ -269,8 +269,6 @@ return {
       vim.keymap.set("n", "gg", "gg", { buffer = buf, silent = true })
       vim.keymap.set("n", "G", "G", { buffer = buf, silent = true })
     end, { desc = "Show keymaps CheatSheet" })
-
-    -- Global keymap to open cheatsheet
-    vim.keymap.set("n", "<leader>?", "<cmd>CheatSheet<cr>", { desc = "CheatSheet" })
+    -- Global keymap (<leader>?) is centralized in lua/core/keymaps.lua
   end,
 }
