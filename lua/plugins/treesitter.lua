@@ -36,7 +36,7 @@ return {
 	event = { "BufReadPost", "BufNewFile" },
 
 	config = function()
-		require("nvim-treesitter.configs").setup({
+		require("nvim-treesitter").setup({
 
 			-- Languages to install
 			ensure_installed = {
@@ -105,15 +105,11 @@ return {
 				},
 			},
 
-			-- Better TS-based folding
-			fold = {
-				enable = true,
-			},
 		})
 
 		-- Configure Treesitter-based folding
 		vim.opt.foldmethod = "expr"
-		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+		vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 		vim.opt.foldlevel = 99 -- Open all by default
 	end,
 }
